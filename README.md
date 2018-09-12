@@ -11,15 +11,15 @@ Most digit sequences are in sequence of 2 or 3, with only 1 example from the tra
 For the preprocessing in this experiment, using the given ground-truth bounding boxes, the digit sequence is cropped from the image and resized to 64x64. Random 54x54 patch is extracted from the 64x64 image to feed into the model for training.
 
 Here are some examples of the predictions on the testing set:  
-![classify results](img/classify_results.png)  
+![classify results](img/classify_result.png)  
 
 ## Detecting multi-digit sequence
 The SmallerVGGNet is use to regress the 4 points of the bounding box containing the digit sequence. The network outputs 4 values: the top left x, y coordinates and the width and height.  
 
 The images are first resized to 96 pixels at the shorter side and resizing the other side maintaining the aspect ratio. Then a 96x96 patch is cropped from the middle of the resized image. So the original given ground truth labels for the bounding boxes can't be used anymore, thus it is computed as shown in the notebook.  
 
-Here are some examples of the predictions on the testing set:  
-![detecting results](img/detecting_results.png)  
+Here are some examples of the predictions on the testing set (RED = Ground Truth, GREEN = Predicted):  
+![detecting results](img/detecting_result.png)  
 
 ## Environment
 * Python 3.6
