@@ -19,7 +19,7 @@ The SmallerVGGNet is use to regress the 4 points of the bounding box containing 
 The images are first resized to 96 pixels at the shorter side and resizing the other side maintaining the aspect ratio. Then a 96x96 patch is cropped from the middle of the resized image. So the original given ground truth labels for the bounding boxes can't be used anymore, thus it is computed as shown in the notebook.  
 
 Here are some examples of the predictions on the testing set (RED = Ground Truth, GREEN = Predicted):  
-![detecting results](img/detecting_result.png)  
+![detecting results](img/detect_result.png)  
 
 ## Environment
 * Python 3.6
