@@ -21,6 +21,37 @@ The images are first resized to 96 pixels at the shorter side and resizing the o
 Here are some examples of the predictions on the testing set (RED = Ground Truth, GREEN = Predicted):  
 ![detecting results](img/detect_result.png)  
 
+## End to end
+After training both models, the models can be used to detect and recognize digits from the street view images. The whole pipeline works as follow:
+1. The input image is first scaled down to 96 pixels on the shorter side, a 96x96 patch is cropped from the middle.
+1. The detection model accepts the cropped patch as input and outputs the bounding box.
+1. A smaller patch is cropped from the 96x96 image according to the predicted bounding box.
+1. The smaller patch is resized to 54x54 and fed into the recognizing model.  
+
+Below are some cherry-picked results:
+![end to end](img/cherry_pick.PNG)
+
+## Files
+```
+01_svhn_labels.ipynb:         extracts the metadata and labels from the given .mat file and save to pickle format
+
+02_classify_preprocess.ipynb: preprocess the images to input into recognizing model and write into HDF5 file
+
+03_detect_preprocess.ipynb:   preprocess the images to input into detection model and write into HDF5 file
+
+04_classify_training.ipynb:   training the recognizing model
+
+05_detect_training.ipynb:     training the detection model
+
+06_classify_testing.ipynb:    testing the recognizing model
+
+07_detect_testing.ipynb:      testing the detection model
+
+08_end_to_end.ipynb:          testing both models working together
+
+model.py:                     implementation of the model described in Multi-digit Number Recognition from Street View Imagery using Deep Convolutional Networks 
+```
+
 ## Environment
 * Python 3.6
 * Keras 2.1.6
