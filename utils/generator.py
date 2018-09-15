@@ -18,6 +18,9 @@ class Generator:
             for i in np.arange(0, self.n_img, self.BS):
                 images = self.db["images"][i:i+self.BS]
                 labels = self.db["labels"][i:i+self.BS]
+                
+                # comment this following line if using generator for 
+                # the bounding box detection model
                 labels = self.convert_labels(labels)
                 
                 if self.preprocessors is not None:

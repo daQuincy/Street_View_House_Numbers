@@ -90,7 +90,7 @@ class SVHNNet:
         digit3 = Dense(classes, activation="softmax")(x)
         digit4 = Dense(classes, activation="softmax")(x)
         digit5 = Dense(classes, activation="softmax")(x)
-        seq_len = Dense(5, activation="softmax")(x)
+        seq_len = Dense(6, activation="softmax")(x)
         
         model = Model(inputs=inputs, outputs=[digit1, digit2, digit3, digit4, digit5, seq_len])
         
